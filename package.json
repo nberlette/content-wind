@@ -1,0 +1,44 @@
+{
+  "private": true,
+  "name": "content-windicss",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Nicholas Berlette <nick@berlette.com>",
+  "scripts": {
+    "dev": "nuxi dev --port ${PORT:-3000}",
+    "build": "nuxi build; windicss-analysis --html .analysis",
+    "generate": "nuxi generate",
+    "preview": "nuxi preview --port ${PORT:-3000}",
+    "dev:analysis": "windicss-analysis --port ${ANALYSIS_PORT:-3001}",
+    "build:analysis": "windicss-analysis --html .analysis --json .analysis.json",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "eslintConfig": {
+    "extends": [
+      "@brlt"
+    ]
+  },
+  "devDependencies": {
+    "@brlt/eslint-config": "^0.0.4",
+    "@brlt/n": "0.1.1",
+    "@brlt/utils": "^0.0.1",
+    "@iconify/vue": "^3.2.1",
+    "@nuxt/content": "^2.0.0",
+    "@nuxtjs/color-mode": "^3.0.3",
+    "@nuxtjs/eslint-config-typescript": "^10.0.0",
+    "@typehaus/metropolis": "*",
+    "@unocss/nuxt": "^0.37.0",
+    "@vueuse/core": "^8.5.0",
+    "eslint": "^8.16.0",
+    "npm-run-all": "4.1.5",
+    "nuxt": "^3.0.0-rc.3",
+    "nuxt-component-meta": "^0.1.5",
+    "nuxt-windicss": "^2.3.2",
+    "pathe": "^0.3.0",
+    "typescript": "^4.7.2",
+    "unocss": "^0.37.0",
+    "windicss": "^3.5.4",
+    "windicss-analysis": "^0.3.5"
+  }
+}
