@@ -33,7 +33,7 @@
     }"
   >
     <slot />
-    <CopyButton :content="$slots.default"></CopyButton>
+    <CopyButton :content="$slots.default" />
   </div>
 </template>
 

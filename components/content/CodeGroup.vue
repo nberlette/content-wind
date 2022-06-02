@@ -25,6 +25,7 @@ export default defineComponent({
           label: slot?.props?.filename || slot?.props?.label || `${index}`,
           active: slot?.props?.active || false,
           component: slot,
+          
         }
       })
 

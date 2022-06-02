@@ -59,8 +59,8 @@ watch(
         v-for="({ label }, i) in tabs"
         ref="tabsRef"
         :key="`${i}${label}`"
-        class="xs:py-3 xs:my-0 relative text-sm my-2 rounded-md px-2 pt-1.5 pb-1 font-display focus:outline-none"
-        :class="[activeTabIndex === i ? 'text-white' : 'text-gray-200 hover:text-gray-100 transition-base transition-colors']"
+        class="text-white xs:py-3 xs:my-0 relative text-sm my-2 rounded-md px-2 pt-1.5 pb-1 font-display focus:outline-none"
+        :class="[activeTabIndex === i ? 'text-white' : '!text-gray-200 hover:text-gray-100 duration-300 transition-base transition-colors']"
         @click="updateTabs(i)"
       >
         {{ label }}
