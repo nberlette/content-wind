@@ -16,7 +16,8 @@
   },
   "eslintConfig": {
     "extends": [
-      "@brlt"
+      "@brlt",
+      "@nuxtjs/eslint-config-typescript"
     ],
     "ignorePatterns": [
       "dist",
