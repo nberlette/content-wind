@@ -1,9 +1,10 @@
 {
   "name": "content-windicss",
   "version": "0.0.1",
-  "author": "Nicholas Berlette <nick@berlette.com>",
   "license": "MIT",
+  "author": "Nicholas Berlette <nick@berlette.com>",
   "private": true,
+  "packageManager": "pnpm@7.1.7",
   "scripts": {
     "dev": "nuxi dev --port ${PORT:-3000}",
     "build": "nuxi build; windicss-analysis --html .analysis",
@@ -24,7 +25,45 @@
       "node_modules",
       ".output",
       ".nuxt"
-    ]
+    ],
+    "root": true,
+    "rules": {
+      "no-console": "off",
+      "no-debugger": "off",
+      "no-unused-vars": "off",
+      "no-undef": "off",
+      "no-unused-expressions": "warn"
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx",
+            ".vue"
+          ]
+        }
+      },
+      "sort-imports": {
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": true
+      }
+    }
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "eslint",
+        "nuxt",
+        "react",
+        "react-dom",
+        "vite",
+        "vitest",
+        "vue"
+      ]
+    }
   },
   "devDependencies": {
     "@brlt/eslint-config": "^0.0.4",

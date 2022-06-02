@@ -7,17 +7,16 @@ export default defineNuxtConfig({
     '@nuxt/content',
     'nuxt-windicss',
     '@nuxtjs/color-mode',
-    '@unocss/nuxt',
-    'nuxt-component-meta',
+    'nuxt-component-meta'
   ],
   // https://color-mode.nuxtjs.org
   colorMode: {
-    classSuffix: ''
+    classSuffix: '',
   },
   // https://content.nuxtjs.org
   content: {
     navigation: {
-      fields: ['navTitle']
+      fields: ['navTitle'],
     },
     highlight: {
       // https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
@@ -34,20 +33,9 @@ export default defineNuxtConfig({
         'yaml',
         'toml',
         'css',
-        'bash',
+        'bash'
       ]
-    }
-  },
-  // https://github.com/unocss/unocss/tree/main/packages/nuxt
-  unocss: {
-    // presets
-    uno: true, // enabled `@unocss/preset-uno`
-    icons: true, // enabled `@unocss/preset-icons`
-    attributify: true, // enabled `@unocss/preset-attributify`,
-
-    // core options
-    shortcuts: [],
-    rules: [],
+    },
   },
   // https://windicss.org
   windicss: {
@@ -58,11 +46,15 @@ export default defineNuxtConfig({
         port: 3001,
         showURL: true,
         isProd: false,
-        clipboard: true
-      }
+        clipboard: true,
+      },
     }
   },
   // additional css stylesheets to inject into the <head> tag (fonts, etc.)
   // https://metropolis.typehaus.org
-  css: ['@typehaus/metropolis/index.css'],
+  css: [
+    '@typehaus/metropolis/300.css',
+    '@typehaus/metropolis/500.css',
+    '@typehaus/metropolis/700.css'
+  ],
 })
