@@ -53,27 +53,27 @@ watch(
 </script>
 
 <template>
-  <div class="tabs-header relative text-white bg-gray-700">
+  <div class="tabs-header relative text-white bg-gray-900 dark:bg-cool-gray-800">
     <div v-if="tabs" class="relative z-0 px-2">
       <button
         v-for="({ label }, i) in tabs"
         ref="tabsRef"
         :key="`${i}${label}`"
-        class="text-white xs:py-3 xs:my-0 relative text-sm my-2 rounded-md px-2 pt-1.5 pb-1 font-display focus:outline-none"
-        :class="[activeTabIndex === i ? 'text-white' : '!text-gray-200 hover:text-gray-100 duration-300 transition-base transition-colors']"
+        class="xs:py-3 xs:my-0 relative text-sm my-2 rounded-md px-2 pt-1.5 pb-1 font-display focus:outline-none"
+        :class="[activeTabIndex === i ? 'text-white' : 'text-gray-200 hover:!text-gray-100 duration-300 transition-base transition-colors !z-20']"
         @click="updateTabs(i)"
       >
         {{ label }}
       </button>
       <span
         ref="highlightUnderline"
-        class="highlight-underline xs:py-1.5 absolute -z-[1]"
+        class="highlight-underline xs:py-1.5 absolute !-z-10"
         :style="{
           transform: `scale(0)`,
           opacity: 0,
         }"
       >
-        <span class="flex h-full w-full rounded bg-gray-600" />
+        <span class="flex h-full w-full rounded bg-cool-gray-600 dark:bg-blue-gray-900/50" />
       </span>
     </div>
 

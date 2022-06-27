@@ -20,7 +20,7 @@
   :not(.code-block, .code-group) > pre {
     @apply bg-gray-900 text-gray-50 px-6 py-4 mx-[-20px] my-4 sm:(mx-0 px-4);
     @apply leading-6 tracking-tight [tab-width:2];
-    @apply rounded-md;
+    @apply rounded-md overflow-x-scroll;
   }
   :is(.code-block, .code-group) {
     @apply mt-2 mb-4 !pb-0;

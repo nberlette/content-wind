@@ -12,7 +12,7 @@ const props = defineProps({
   },
   branch: {
     type: String,
-    default: '',
+    default: 'main',
   },
   dir: {
     type: String,

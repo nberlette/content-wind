@@ -11,7 +11,7 @@ export default defineComponent({
     return {
       activeTabIndex: 0,
       /**
-       * A simple number that increases on every changes
+       * A simple number that increases on every change
        */
       counter: 0,
     }
