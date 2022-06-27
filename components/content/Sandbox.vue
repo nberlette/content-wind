@@ -41,7 +41,7 @@ const provider = ref('')
 const changeProvider = (value) => {
   provider.value = value
   url.value = props.src || providers[provider.value]()
-  localStorage.setItem('docus_sandbox', value)
+  localStorage.setItem('sandbox', value)
 }
 
 const sandBoxUrl = computed(() => url.value?.replace('?embed=1&', '?').replace('/embed/', '/s/'))
@@ -54,7 +54,7 @@ const updateTab = (i: number) => {
 onMounted(() => {
   // TODO: if Safari, use CodeSandBox by default: 
   // const defaultSandbox = ...
-  provider.value = window.localStorage.getItem('docus_sandbox') || 'CodeSandBox'
+  provider.value = window.localStorage.getItem('sandbox') || 'CodeSandBox'
 
   url.value = props.src || providers[provider.value]()
 
