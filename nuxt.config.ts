@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from 'nuxt'
+import { defineNuxtConfig } from 'nuxt/config'
 import { resolve } from 'pathe'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
@@ -6,8 +6,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     'nuxt-windicss',
-    '@nuxtjs/color-mode',
-    'nuxt-component-meta'
+    '@nuxtjs/color-mode'
   ],
   // https://color-mode.nuxtjs.org
   colorMode: {
@@ -39,7 +38,7 @@ export default defineNuxtConfig({
   },
   // https://windicss.org
   windicss: {
-    config: resolve(__dirname, './windi.config.ts'),
+    config: resolve('./windi.config.ts'),
     // https://github.com/windicss/windicss-analysis
     analyze: {
       server: {
