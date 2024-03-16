@@ -10,7 +10,7 @@
 - [x] Pre-integrated with [**`@typehaus/metropolis`**](https://github.com/typehaus/metropolis) webfont package
 - [x] WindiCSS Analysis with [**windicss-analysis**](https://github.com/windicss/windicss-analysis) module
 - [x] [**Markdown Components (MDC)**](https://content.nuxtjs.org/mdc) by [NuxtLabs](https://nuxtlabs.com)
-- [x] `<Icon>` component with access to over **100,000 icons** via [**Iconify**](https://iconify.design)
+- [x] `<Icon />` component with access to over **100,000 icons** via [**Iconify**](https://iconify.design)
 - [x] Zero-config deployment with Netlify, Vercel, Railway, Cloudflare, ...
 - [x] Great SEO out-of-the-box: controllable via Markdown frontmatter. 
 - [x] Dark mode means a more retina-friendly experience (your eyes' retina, not the screen 😜)
