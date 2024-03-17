@@ -2,8 +2,8 @@
 import TabsHeader from './TabsHeader.vue'
 import { defineComponent, h } from '#imports'
 
-const isTag = (slot: any, tag: string) => {
-  return slot.type && slot.type.tag && slot.type.tag === tag
+function isTag<const S extends {}, T extends string>(slot: S, tag: T): slot is S & { type: ("type" extends keyof S ? S["type"] : unknown) & { readonly tag: T } } {
+  return slot?.type?.tag === tag
 }
 
 export default defineComponent({
@@ -26,7 +26,7 @@ export default defineComponent({
           active: slot?.props?.active || false,
           component: slot,
         }
-      })
+      });
 
     return h(
       'div',
@@ -64,8 +64,12 @@ export default defineComponent({
               },
               // Display direct children if not a ```code``` block
               [
-                isTag(slot, 'code') ? slot : 
-                h('div', { class: 'preview-canvas' }, [slot.children.default()]),
+                isTag(slot, 'code') ? slot :
+                h('div', {
+                  class: {
+                    'preview-canvas': !isTag(slot, 'code') && !isTag(slot.children?.default?.() ?? slot.children?.[0] ?? {}, "code")
+                  }
+                }, [slot.children.default()]),
               ],
             ),
           ),
@@ -77,54 +81,43 @@ export default defineComponent({
 </script>
 
 <style lang="postcss">
-li {
-  .code-group {
+li .code-group {
     @apply my-4;
-  }
 }
 
-.dark {
-  .code-group-content {
-    .preview-canvas {
-      @apply z-0 my-0 overflow-x-auto rounded-bl-lg rounded-br-lg rounded-tl-none rounded-tr-none bg-gray-900 p-4 leading-normal;
-    }
-  }
+.dark .code-group-content .preview-canvas {
+  @apply z-0 my-0 overflow-x-auto rounded-bl-lg rounded-br-lg rounded-tl-none rounded-tr-none bg-gray-900 p-4 leading-normal;
 }
 
 .code-group {
-  @apply surface-border overflow-hidden transition-[border-radius] duration-300 ease-in;
-  @apply rounded-md md:!rounded-lg lg:!rounded-xl;
-  @apply ring-1 ring-offset-1 ring-offset-gray-50 ring-black/20;
-  @apply dark:!(ring-offset-cool-gray-900 ring-white/15);
-
-  :deep(.prose-code) {
+  @apply surface-border overflow-hidden transition-[border-radius] duration-300 ease-in rounded-md md:!rounded-lg lg:!rounded-xl ring-1 ring-offset-1 ring-offset-gray-50 ring-black/20 dark:!ring-offset-cool-gray-900 dark:!ring-white/15 @dark:!ring-offset-cool-gray-900 @dark:!ring-white/15;
+}
+  .code-group > :is(.prose-code, * > .prose-code) {
     @apply mt-0 mb-0 rounded-none !important;
   }
 
-  :deep(.prose-code-header) {
+  .code-group > :is(.prose-code, * > .prose-code-header) {
     @apply hidden;
   }
 
-  :deep(pre) {
+  .code-group > :is(pre, * > .pre) {
     @apply mt-0 rounded-none !important;
   }
 
-  :deep(.filename) {
+  .code-group > :is(.filename, * > .filename) {
     @apply hidden;
-  }
 }
 
-.code-group-content {
-  .preview-canvas {
-    @apply z-0 my-0 overflow-x-auto rounded-bl-lg rounded-br-lg p-4 leading-normal;
-    @apply bg-gray-50 text-gray-800 dark:bg-gray-800 dark:text-gray-200 ;
+  .code-group-content .preview-canvas {
+    @apply z-0 my-0 overflow-x-auto rounded-bl-lg rounded-br-lg p-4 leading-normal bg-gray-50 text-gray-800 dark:bg-gray-800 dark:text-gray-200 @dark:bg-gray-800 @dark:text-gray-200;
+  }
 
-    & > * {
-      @apply my-0;
-    }
+  .code-group-content .preview-canvas > * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
-  pre, code {
-    @apply !m-0 !p-0 !px-4 text-sm leading-4 sm:!(text-base leading-5) !rounded-tl-none !rounded-tr-none;
+
+  .code-group-content :is(pre, code) {
+    @apply !m-0 !p-0 !px-4 text-sm leading-4 sm:!text-base sm:!leading-5 !rounded-tl-none !rounded-tr-none;
   }
-}
 </style>
