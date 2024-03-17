@@ -4,7 +4,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
-    // 'nuxt-windicss',
+    'nuxt-windicss',
     '@nuxtjs/color-mode',
     '@unocss/nuxt'
   ],
@@ -35,6 +35,12 @@ export default defineNuxtConfig({
         'bash'
       ]
     },
+  },
+  unocss: {
+    uno: {},
+    typography: {},
+    attributify: {},
+    tagify: {},
   },
   // https://windicss.org
   // windicss: {
