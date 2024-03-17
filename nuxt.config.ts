@@ -1,12 +1,12 @@
 import { defineNuxtConfig } from 'nuxt/config'
-import { resolve } from 'pathe'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
-    'nuxt-windicss',
-    '@nuxtjs/color-mode'
+    // 'nuxt-windicss',
+    '@nuxtjs/color-mode',
+    '@unocss/nuxt'
   ],
   // https://color-mode.nuxtjs.org
   colorMode: {
@@ -37,18 +37,18 @@ export default defineNuxtConfig({
     },
   },
   // https://windicss.org
-  windicss: {
-    config: resolve('./windi.config.ts'),
-    // https://github.com/windicss/windicss-analysis
-    analyze: {
-      server: {
-        port: 3001,
-        showURL: true,
-        isProd: false,
-        clipboard: true,
-      },
-    }
-  },
+  // windicss: {
+  //   config: resolve('./windi.config.ts'),
+  //   // https://github.com/windicss/windicss-analysis
+  //   analyze: {
+  //     server: {
+  //       port: 3001,
+  //       showURL: true,
+  //       isProd: false,
+  //       clipboard: true,
+  //     },
+  //   }
+  // },
   // additional css stylesheets to inject into the <head> tag (fonts, etc.)
   // https://metropolis.typehaus.org
   css: [

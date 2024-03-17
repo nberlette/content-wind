@@ -25,7 +25,6 @@ export default defineComponent({
           label: slot?.props?.filename || slot?.props?.label || `${index}`,
           active: slot?.props?.active || false,
           component: slot,
-          
         }
       })
 
@@ -65,17 +64,8 @@ export default defineComponent({
               },
               // Display direct children if not a ```code``` block
               [
-                isTag(slot, 'code')
-                  ? slot
-                  : h(
-                    'div',
-                    {
-                      class: {
-                        'preview-canvas': true,
-                      },
-                    },
-                    [slot.children.default()],
-                  ),
+                isTag(slot, 'code') ? slot : 
+                h('div', { class: 'preview-canvas' }, [slot.children.default()]),
               ],
             ),
           ),
